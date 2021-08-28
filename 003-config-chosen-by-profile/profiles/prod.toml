@@ -1,0 +1,14 @@
+# This is a PROD's profile TOML config, which is loaded after the default config only if PROD profile 
+# was explicitly mentioned in a program 'profile' argument or via environment variable PROFILE.
+
+prop2 = 2
+
+[propSet1]
+prop3 = "prop3-prod-value"
+
+[propSet2]
+prop6 = { k1 = 2.1, k22 = 0.2, k3 = 0.3}
+prop7.subprop1 = false
+
+  [propSet2.subset]
+  prop8 = "prop8-prod-value"

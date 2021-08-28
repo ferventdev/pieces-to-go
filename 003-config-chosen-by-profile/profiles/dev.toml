@@ -1,0 +1,16 @@
+# This is a DEV's profile TOML config, which is loaded after the default config only if DEV profile 
+# was explicitly mentioned in a program 'profile' argument or via environment variable PROFILE.
+
+prop1 = "prop1-dev-value"
+prop2 = 1
+
+[propSet1]
+prop3 = "prop3-default-value"
+
+[propSet2]
+prop5 = [ 1.1, 0.2, 1.3, 1.4 ]
+prop6 = { k1 = 0.1, k2 = 1.2, k13 = 0.3}
+prop7.subprop2 = true
+
+  [propSet2.subset]
+  prop9 = 2022-08-15T03:33:33Z

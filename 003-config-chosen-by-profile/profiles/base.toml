@@ -1,0 +1,18 @@
+# This is a base (default) TOML config, which is anyway loaded first (prior to any profile's config).
+# Below are some sample properties with values
+
+prop1 = "prop1-default-value"
+prop2 = 0
+
+[propSet1]
+prop3 = "prop3-default-value"
+prop4 = 0.01
+
+[propSet2]
+prop5 = [ 0.1, 0.2, 0.3 ]
+prop6 = { k1 = 0.1, k2 = 0.2, k3 = 0.3}
+prop7.subprop1 = true
+
+  [propSet2.subset]
+  prop8 = "prop8-default-value"
+  prop9 = 2021-08-15T03:33:33Z
