@@ -1,0 +1,82 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server to show the added swagger support.",
+        "title": "Server with healthcheck",
+        "contact": {},
+        "version": "0.0.1"
+    },
+    "host": "localhost:8080",
+    "paths": {
+        "/healthcheck": {
+            "get": {
+                "description": "Returns 200 OK up, if all's good.",
+                "produces": [
+                    "text/plain"
+                ],
+                "summary": "Healthcheck endpoint",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/info": {
+            "get": {
+                "description": "This is a current app's state endpoint, may be used for a diagnostic purpose.",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Information endpoint",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.appInfo"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "main.appInfo": {
+            "type": "object",
+            "properties": {
+                "running": {
+                    "type": "boolean"
+                },
+                "time": {
+                    "$ref": "#/definitions/main.timeInfo"
+                }
+            }
+        },
+        "main.timeInfo": {
+            "type": "object",
+            "properties": {
+                "now": {
+                    "type": "string"
+                },
+                "startedAt": {
+                    "type": "string"
+                },
+                "uptimeInHours": {
+                    "type": "number"
+                },
+                "uptimeInSec": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}
