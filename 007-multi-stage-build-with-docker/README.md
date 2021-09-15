@@ -1,4 +1,5 @@
-Dockerfile, which is present in this directory, shows the simplest approach for building and running a Go program via docker. Nevertheless, it can be applied for local builds especially with the small codebases because of the Go's high compilation speed. If needed, additional build steps, such as autoformat, linter and tests running can easily be added to this Dockerfile.
+Dockerfile, which is present in this directory, makes use of a multi-stage docker build. 
+It may (and probably should) be applied for CI/CD pipelines instead of a simple build (shown previously), because with a multi-stage approach the resultant image has significantly smaller size (as it mainly holds just the app binary). The first stage builds the executable artifact, which is then inserted into the lightweight distroless image.
 
 
 Use the following command to build an app's docker image and run a container from it in the terminal:
