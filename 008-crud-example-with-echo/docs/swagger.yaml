@@ -1,0 +1,61 @@
+definitions:
+  main.ErrorView:
+    properties:
+      errorCode:
+        type: string
+      message:
+        type: string
+      time:
+        type: string
+    type: object
+  main.User:
+    properties:
+      email:
+        type: string
+      firstName:
+        type: string
+      id:
+        format: uuid
+        type: string
+      lastName:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: This is a simple server to demonstrate the CRUD operations via the
+    echo framework.
+  title: Simple CRUD example
+  version: 0.0.1
+paths:
+  /users/{id}:
+    get:
+      description: Gets the user by ID.
+      parameters:
+      - description: User ID
+        format: uuid
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.User'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.ErrorView'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.ErrorView'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.ErrorView'
+      summary: Get the user
+swagger: "2.0"

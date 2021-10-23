@@ -18,6 +18,15 @@ func SetupUserApi(e *echo.Echo, r *UserRepo) *UserApi {
 	return api
 }
 
+// @Summary Get the user
+// @Description Gets the user by ID.
+// @Produce json
+// @Success 200 {object} main.User
+// @Failure 400 {object} main.ErrorView
+// @Failure 404 {object} main.ErrorView
+// @Failure 500 {object} main.ErrorView
+// @Param id path string true "User ID" format(uuid)
+// @Router /users/{id} [get]
 func (a *UserApi) get(c echo.Context) error {
 	id, err := uuid.Parse(c.Param("id"))
 	if err != nil {
